@@ -15,8 +15,8 @@ MonoBehaviour:
   AllPrefabPath:
   - Assets/Prefabs
   AllFileDirAssetBundle:
-  - AssetBundleName: 3dgameshaer
-    Path: Assets/3D Game Kit - Environment Pack/Shaders
+  - AssetBundleName: environment
+    Path: Assets/Res/Environment
   - AssetBundleName: sounds
     Path: Assets/Sounds
   - AssetBundleName: scenes

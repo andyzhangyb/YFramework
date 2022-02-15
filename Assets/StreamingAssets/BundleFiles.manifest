@@ -1,0 +1,16 @@
+ManifestFileVersion: 0
+CRC: 675517602
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: scenes
+      Dependencies: {}
+    Info_1:
+      Name: vegetationlarge01
+      Dependencies: {}
+    Info_2:
+      Name: environment
+      Dependencies: {}
+    Info_3:
+      Name: assetbundleinfo
+      Dependencies: {}

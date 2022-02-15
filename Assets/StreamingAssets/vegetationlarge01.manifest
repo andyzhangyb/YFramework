@@ -1,0 +1,40 @@
+ManifestFileVersion: 0
+CRC: 1949726310
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 9616813b04b90950ac5714820b6ceaed
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 352fec31b373d1c2b6c23f4ee058e253
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 205
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Res/Environment/Vegetation/Large/Materials/VegetationLarge01_Mat.mat
+- Assets/Res/Environment/Vegetation/Large/Textures/VegetationLarge01_MetallicSmooth.tif
+- Assets/Res/Environment/Vegetation/Large/Textures/VegetationLarge01_Occlusion.tif
+- Assets/Res/Environment/Vegetation/Large/Models/VegetationLarge01.fbx
+- Assets/Res/Shaders/Vegetation.shader
+- Assets/Prefabs/VegetationLarge01.prefab
+- Assets/Res/Environment/Vegetation/Large/Textures/VegetationLarge01_Normals.tif
+- Assets/Res/Environment/Vegetation/Large/Textures/VegetationLarge01_Albedo.tif
+Dependencies: []

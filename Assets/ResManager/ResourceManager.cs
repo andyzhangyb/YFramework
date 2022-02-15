@@ -50,7 +50,7 @@ public class AsyncLoadedCallback : BasePoolObject
 
 public class ResourceManager : Singleton<ResourceManager>
 {
-    public bool LoadFormAssetBundleForEditor = false;
+    public bool LoadFormAssetBundleForEditor = true;
 
     private const int MAXCACHECOUNT = 500;
     protected List<ResourceItem> cacheAsset = new List<ResourceItem>();
@@ -244,7 +244,7 @@ public class ResourceManager : Singleton<ResourceManager>
                 }
             }
         }
-    ENDCANCEL:
+        ENDCANCEL:
         return result;
     }
 

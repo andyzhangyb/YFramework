@@ -1,0 +1,17 @@
+ManifestFileVersion: 0
+CRC: 3407023354
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: f9837f50d1f428db6189b2e45a7787f9
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: b0363f7088f9761414f730641bf9a24b
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Res/Environment/Vegetation/Large/Textures/VegetationLarge01_Emission.tif
+Dependencies: []

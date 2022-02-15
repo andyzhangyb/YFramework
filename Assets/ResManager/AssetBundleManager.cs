@@ -267,7 +267,7 @@ public class AssetBundleManager : Singleton<AssetBundleManager>
 
     protected void UnloadAssetByEditor(UnityEngine.Object obj)
     {
-        Resources.UnloadAsset(obj);
+        Resources.UnloadUnusedAssets();
         System.GC.Collect();
     }
 #endif
@@ -310,7 +310,7 @@ public class AssetBundleManager : Singleton<AssetBundleManager>
         uint crc = CRC32.GetCRC3232(bundleName);
         AssetBundleItem item;
         var startTime = Time.realtimeSinceStartup;
-    RESTARTCHECK:
+        RESTARTCHECK:
         if (!assetBundleItemDic.TryGetValue(crc, out item) || item == null)
         {
             // ERROR!!!
@@ -321,10 +321,10 @@ public class AssetBundleManager : Singleton<AssetBundleManager>
             //}
             //else
             //{
-                item = assetBundlePool.Spawn(true);
-                //item.LoadAssetBundle(assetBundlePath + bundleName);
-                item.LoadAssetBundle(FileUtils.Instance.FullPathForFilename(bundleName));
-                assetBundleItemDic[crc] = item;
+            item = assetBundlePool.Spawn(true);
+            //item.LoadAssetBundle(assetBundlePath + bundleName);
+            item.LoadAssetBundle(FileUtils.Instance.FullPathForFilename(bundleName));
+            assetBundleItemDic[crc] = item;
             //}
         }
         return item;
@@ -424,7 +424,7 @@ public class AssetBundleManager : Singleton<AssetBundleManager>
                     keyPair.Value.AsyncLoadedCallbacks[i](item);
                 }
 
-            NEXTASYNCLOADPARAM:;
+                NEXTASYNCLOADPARAM:;
             }
             for (int i = 0; i < removeKeys.Count; i++)
             {

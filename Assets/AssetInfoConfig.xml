@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AssetInfoConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <AssetInfoList Path="Assets/Res/Environment/Vegetation/Large/Textures/VegetationLarge01_Emission.tif" CRC="2209024432" BundleName="environment" AssetName="VegetationLarge01_Emission.tif" />
+  <AssetInfoList Path="Assets/Scenes/SampleScene.unity" CRC="2052513325" BundleName="scenes" AssetName="SampleScene.unity" />
+  <AssetInfoList Path="Assets/Prefabs/VegetationLarge01.prefab" CRC="2686667909" BundleName="vegetationlarge01" AssetName="VegetationLarge01.prefab" />
+  <AssetInfoList Path="Assets/Res/Environment/Vegetation/Large/Materials/VegetationLarge01_Mat.mat" CRC="4148840883" BundleName="vegetationlarge01" AssetName="VegetationLarge01_Mat.mat" />
+  <AssetInfoList Path="Assets/Res/Environment/Vegetation/Large/Models/VegetationLarge01.fbx" CRC="2581087712" BundleName="vegetationlarge01" AssetName="VegetationLarge01.fbx" />
+  <AssetInfoList Path="Assets/Res/Environment/Vegetation/Large/Textures/VegetationLarge01_Albedo.tif" CRC="1185072674" BundleName="vegetationlarge01" AssetName="VegetationLarge01_Albedo.tif" />
+  <AssetInfoList Path="Assets/Res/Environment/Vegetation/Large/Textures/VegetationLarge01_MetallicSmooth.tif" CRC="1312834192" BundleName="vegetationlarge01" AssetName="VegetationLarge01_MetallicSmooth.tif" />
+  <AssetInfoList Path="Assets/Res/Environment/Vegetation/Large/Textures/VegetationLarge01_Normals.tif" CRC="2280016794" BundleName="vegetationlarge01" AssetName="VegetationLarge01_Normals.tif" />
+  <AssetInfoList Path="Assets/Res/Environment/Vegetation/Large/Textures/VegetationLarge01_Occlusion.tif" CRC="60632361" BundleName="vegetationlarge01" AssetName="VegetationLarge01_Occlusion.tif" />
+</AssetInfoConfig>

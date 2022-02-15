@@ -11,12 +11,12 @@ public class MainScene : MonoBehaviour
     public Transform ParentTransform;
     private AudioClip audioClip;
     private GameObject rock;
+    private GameObject veg;
     private ulong loadId;
 
     private void Awake()
     {
-        ILRuntimeManager.Instance.Init();
-
+        //ILRuntimeManager.Instance.Init();
         ResourceManager.Instance.SetMonoBehaviour(this);
         AssetBundleManager.Instance.BuildAssetInfo();
         ObjectManager.Instance.Init(RecycleTransform);
@@ -52,9 +52,9 @@ public class MainScene : MonoBehaviour
             //rock = ObjectManager.Instance.InstantiateObject("Assets/Prefabs/Rock.prefab", ParentTransform);
         }
         {
-            loadId = ObjectManager.Instance.InstantiateObjectAsync("Assets/Prefabs/Rock.prefab", new System.Action<string, GameObject, object>((string path, GameObject obj, object data) =>
+            loadId = ObjectManager.Instance.InstantiateObjectAsync("Assets/Prefabs/VegetationLarge01.prefab", new System.Action<string, GameObject, object>((string path, GameObject obj, object data) =>
              {
-                 rock = obj;
+                 veg = obj;
              }), ParentTransform);
             //Invoke("CancelLoad", (float)1.0 / (float)60.0);
         }
@@ -71,7 +71,7 @@ public class MainScene : MonoBehaviour
         {
             ObjectManager.Instance.InstantiateObjectAsync("Assets/Prefabs/Rock.prefab", new System.Action<string, GameObject, object>((string path, GameObject obj, object data) =>
             {
-                rock = obj;
+                veg = obj;
             }), ParentTransform);
         }
         if (Input.GetKeyDown(KeyCode.P))
@@ -79,23 +79,23 @@ public class MainScene : MonoBehaviour
             //audioClip = ResourceManager.Instance.LoadResource<AudioClip>("Assets/Sounds/audio.mp3");
             //Audio.clip = audioClip;
             //Audio.Play();
-            rock = ObjectManager.Instance.InstantiateObject("Assets/Prefabs/Rock.prefab", ParentTransform);
+            veg = ObjectManager.Instance.InstantiateObject("Assets/Prefabs/Rock.prefab", ParentTransform);
         }
         if (Input.GetKeyDown(KeyCode.A))
         {
             //Audio.Stop();
             //Audio.clip = null;
             //ResourceManager.Instance.ReleaseResource(audioClip);
-            if (rock == null) return;
-            ObjectManager.Instance.ReleaseGameObject(rock);
-            rock = null;
+            if (veg == null) return;
+            ObjectManager.Instance.ReleaseGameObject(veg);
+            veg = null;
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
-            if (rock == null) return;
-            ObjectManager.Instance.ReleaseGameObject(rock, 0);
-            Destroy(rock);
-            rock = null;
+            if (veg == null) return;
+            ObjectManager.Instance.ReleaseGameObject(veg, 0);
+            Destroy(veg);
+            veg = null;
         }
         if (Input.GetKeyDown(KeyCode.C))
         {
