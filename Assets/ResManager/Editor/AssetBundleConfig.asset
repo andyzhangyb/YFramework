@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 243f347a3222e0340b771ef1554083c7, type: 3}
+  m_Name: AssetBundleConfig
+  m_EditorClassIdentifier: 
+  AllPrefabPath:
+  - Assets/Prefabs
+  AllFileDirAssetBundle:
+  - AssetBundleName: 3dgameshaer
+    Path: Assets/3D Game Kit - Environment Pack/Shaders
+  - AssetBundleName: sounds
+    Path: Assets/Sounds
+  - AssetBundleName: scenes
+    Path: Assets/Scenes
+  - AssetBundleName: hotfixpatch
+    Path: Assets/HotFixPatch
