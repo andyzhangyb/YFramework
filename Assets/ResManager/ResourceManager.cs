@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Threading;
 using UnityEngine;
 
 public enum AsyncLoadPriority
@@ -71,6 +70,11 @@ public class ResourceManager : Singleton<ResourceManager>
     public const ulong INVALIDASYNCID = ulong.MaxValue;
     private ulong asyncLoadId = ASYNC_SYNC_ID + 1;
 
+    ~ResourceManager()
+    {
+        ClearCache();
+    }
+
     public ulong GetAsyncLoadId()
     {
         if (asyncLoadId == INVALIDASYNCID)
@@ -110,7 +114,9 @@ public class ResourceManager : Singleton<ResourceManager>
     /// <returns>Resource.</returns>
     public T LoadResource<T>(string path, bool cache = true) where T : UnityEngine.Object
     {
-        return LoadResourceItem<T>(path, cache).GetGameObject<T>();
+        var resourceItem = LoadResourceItem<T>(path, cache);
+        if (resourceItem == null) Debug.Log(string.Format("Get Res Failed: {0}", path));
+        return resourceItem.GetGameObject<T>();
     }
 
     public ResourceItem LoadResourceItem<T>(string path, bool cache = true) where T : UnityEngine.Object
@@ -134,6 +140,7 @@ public class ResourceManager : Singleton<ResourceManager>
         if (item == null)
         {
             item = AssetBundleManager.Instance.LoadResAndAssetBundle(crc);
+            if (item == null) Debug.LogError(path);
             item.Retain();
         }
         item.GetGameObject<T>();

@@ -47,6 +47,11 @@ public class ObjectManager : Singleton<ObjectManager>
         asyncLoadObjectParamPool = GetOrCreateClassPool<AsyncLoadObjectParam>(100);
     }
 
+    ~ObjectManager()
+    {
+        ClearAllCache();
+    }
+
     public void Init(Transform recycleTransform)
     {
         this.recycleTransform = recycleTransform;
@@ -136,6 +141,10 @@ public class ObjectManager : Singleton<ObjectManager>
                 gameObjectItem.GameObj = GameObject.Instantiate(gameObjectItem.ResItem.GetGameObject<UnityEngine.GameObject>());
             }
             gameObjectItem.GUID = gameObjectItem.GameObj.GetInstanceID();
+        }
+        else
+        {
+            gameObjectItem.GameObj.GetComponent<Transform>().SetParent(parentTransform);
         }
         gameObjectDic[gameObjectItem.GameObj.GetInstanceID()] = gameObjectItem;
         return gameObjectItem.GameObj;
@@ -244,8 +253,15 @@ public class ObjectManager : Singleton<ObjectManager>
         }
         var crc = gameObjectItem.CRC;
         gameObjectDic.Remove(objectInstanceID);
+
+        if (!gameObjectPoolDic.ContainsKey(crc))
+        {
+            gameObjectPoolDic[crc] = new List<GameObjectItem>();
+        }
+
         if (maxCacheCount == 0 || (maxCacheCount > 0 && gameObjectPoolDic[crc].Count >= maxCacheCount))
         {
+            GameObject.Destroy(gameObjectItem.GameObj);
             ResourceManager.Instance.ReleaseResource(gameObjectItem.ResItem);
             gameObjectItem.Reset();
             gameObjectItemPool.Recycle(gameObjectItem);
@@ -254,10 +270,6 @@ public class ObjectManager : Singleton<ObjectManager>
 #if UNITY_EDITOR
         gameObject.name += "(Recycle)";
 #endif
-        if (!gameObjectPoolDic.ContainsKey(crc))
-        {
-            gameObjectPoolDic[crc] = new List<GameObjectItem>();
-        }
         if (recycleToParent)
         {
             gameObjectItem.GameObj.transform.SetParent(recycleTransform);

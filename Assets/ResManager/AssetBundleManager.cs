@@ -253,7 +253,8 @@ public class AssetBundleManager : Singleton<AssetBundleManager>
         // For release.
         item.SetAssetBaseInfo(new AssetBaseInfo()
         {
-            CRC = crc
+            CRC = crc,
+            Path = path
         });
         item.SetGameObject(LoadAssetByEditor<T>(path));
         resourceItemsDic[crc] = item;
@@ -267,7 +268,7 @@ public class AssetBundleManager : Singleton<AssetBundleManager>
 
     protected void UnloadAssetByEditor(UnityEngine.Object obj)
     {
-        Resources.UnloadUnusedAssets();
+        Resources.UnloadAsset(obj);
         System.GC.Collect();
     }
 #endif
@@ -281,8 +282,11 @@ public class AssetBundleManager : Singleton<AssetBundleManager>
 #if UNITY_EDITOR
         if (!ResourceManager.Instance.LoadFormAssetBundleForEditor)
         {
-            // Unload resource that dont load from assetbundle.
-            UnloadAssetByEditor(item.GetGameObject<UnityEngine.Object>());
+            if (!item.ResBaseInfo.Path.EndsWith(".prefab"))
+                // Unload resource that dont load from assetbundle.
+                UnloadAssetByEditor(item.GetGameObject<UnityEngine.Object>());
+            resourceItemsDic.Remove(item.ResBaseInfo.CRC);
+            resourceItemPool.Recycle(item);
             return;
         }
 #endif

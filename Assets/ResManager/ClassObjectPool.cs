@@ -17,7 +17,7 @@ public class ClassObjectPool<T> where T : BasePoolObject, new()
         }
     }
 
-    public T Spawn(bool forceSpawn)
+    public T Spawn(bool forceSpawn = true)
     {
         T result = null;
         if (dataStack.Count > 0)
